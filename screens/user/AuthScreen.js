@@ -8,6 +8,7 @@ import {
   Platform,
   ActivityIndicator,
   Alert,
+  Text,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useDispatch } from "react-redux";
@@ -111,6 +112,9 @@ const AuthScreen = (props) => {
       <LinearGradient colors={["#ffedff", "#ffe3ff"]} style={styles.gradient}>
         <Card style={styles.authContainer}>
           <ScrollView>
+            <Text style={styles.titleText}>
+              {isSignup ? "Sign Up" : "Login"}
+            </Text>
             <Input
               id="email"
               label="E-Mail"
@@ -169,6 +173,11 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     height: "100%",
+  },
+  titleText: {
+    textAlign: "center",
+    fontSize: 18,
+    fontFamily: "open-sans-bold",
   },
   gradient: {
     flex: 1,
