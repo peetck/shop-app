@@ -55,7 +55,7 @@ const Input = (props) => {
     if (props.minLength != null && text.length < props.minLength) {
       isValid = false;
     }
-    if (props.numberOnly != null && isNaN(text)){
+    if (props.numberOnly != null && isNaN(text)) {
       isValid = false;
     }
 
@@ -79,8 +79,10 @@ const Input = (props) => {
         {...props}
         style={styles.input}
         value={inputState.value}
-        onChangeText={textChangeHandler}
-        onBlur={lostFocusHandler}
+        onChangeText={(text) => {
+          textChangeHandler(text);
+          lostFocusHandler();
+        }}
       />
       {!inputState.isValid && inputState.touched && (
         <View style={styles.errorContainer}>
