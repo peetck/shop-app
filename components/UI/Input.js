@@ -55,6 +55,9 @@ const Input = (props) => {
     if (props.minLength != null && text.length < props.minLength) {
       isValid = false;
     }
+    if (props.numberOnly != null && isNaN(text)){
+      isValid = false;
+    }
 
     dispatch({
       type: INPUT_CHANGE,
