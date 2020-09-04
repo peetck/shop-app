@@ -9,23 +9,23 @@ const AppNavigator = (props) => {
   const isAuth = useSelector((state) => !!state.auth.token);
   const didTryAutoLogin = useSelector((state) => state.auth.didTryAutoLogin);
 
-  let screen;
-  if (isAuth) {
-    screen = <ShopNavigator />;
-  } else {
-    if (didTryAutoLogin) {
-      screen = <AuthNavigator />;
-    } else {
-      screen = <StartupScreen />;
-    }
-  }
+  // let screen;
+  // if (isAuth) {
+  //   screen = <ShopNavigator />;
+  // } else {
+  //   if (didTryAutoLogin) {
+  //     screen = <AuthNavigator />;
+  //   } else {
+  //     screen = <StartupScreen />;
+  //   }
+  // }
 
   return (
     <NavigationContainer>
-      {/* {isAuth && <ShopNavigator />}
+      {isAuth && <ShopNavigator />}
       {!isAuth && didTryAutoLogin && <AuthNavigator />}
-      {!isAuth && !didTryAutoLogin && <StartupScreen />} */}
-      {screen}
+      {!isAuth && !didTryAutoLogin && <StartupScreen />}
+      {/* {screen} */}
     </NavigationContainer>
   );
 };
