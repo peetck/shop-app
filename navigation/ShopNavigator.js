@@ -3,8 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {
   createDrawerNavigator,
   DrawerItemList,
+  DrawerItem,
 } from "@react-navigation/drawer";
-import { Platform, SafeAreaView, Button, View } from "react-native";
+import { Platform, SafeAreaView, Button, View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 
@@ -113,15 +114,41 @@ export const ShopNavigator = () => {
         return (
           <View style={{ flex: 1, paddingTop: 20 }}>
             <SafeAreaView forceInset={{ top: "always", horizontal: "never" }}>
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontFamily: "open-sans-bold",
+                  paddingTop: 20,
+                  paddingLeft: 10,
+                  paddingBottom: 20,
+                }}
+              >
+                Shop App
+              </Text>
               <DrawerItemList {...props} />
-              <Button
+              <DrawerItem
+                label="Logout"
+                onPress={() => {
+                  dispatch(authActions.logout());
+                }}
+                icon={() => (
+                  <Ionicons
+                    name={
+                      Platform.OS === "android" ? "md-log-out" : "ios-log-out"
+                    }
+                    size={23}
+                    color="grey"
+                  />
+                )}
+              />
+              {/* <Button
                 title="Logout"
                 color={Colors.primary}
                 onPress={() => {
                   dispatch(authActions.logout());
                   // props.navigation.navigate("Auth");
                 }}
-              />
+              /> */}
             </SafeAreaView>
           </View>
         );
