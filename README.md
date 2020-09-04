@@ -2,6 +2,8 @@
 
 - Shop app made with React Native (w/ react-navigation, redux, etc.)
 
+<div style="text-align:center"><img src="screenshots/expo.png"></div>
+
 ## Screenshots :camera:
 
 <div><img width="40%" src="screenshots/1.png"> <img width="40%" src="screenshots/2.png"></div>
